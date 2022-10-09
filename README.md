@@ -38,14 +38,22 @@ constexpr static auto print_vector = [](auto const &v) noexcept
 A constexpr lambda used to print a vector.
 The vector's `value_type` must be printable.
 To acquire the `value_type`; [decltype](https://en.cppreference.com/w/cpp/language/decltype), [std::remove_reference](https://en.cppreference.com/w/cpp/types/remove_reference) and [std::remove_const](https://en.cppreference.com/w/cpp/types/remove_cv) is used.
+The whole typename could have been written as a one-liner but instead, arbitrarily chosen names were used to increase readability.
+These names (A, B and C) have no special meaning. 
+Also, using copy with an output stream iterator is a common pattern that can be easily find on the internet.
+Example links:
+- [How to use std::copy for printing a user defined type](https://stackoverflow.com/questions/42106614/how-to-use-stdcopy-for-printing-a-user-defined-type)
+- [std::copy, std::copy_if](https://en.cppreference.com/w/cpp/algorithm/copy)
+- [output formatting with std::copy](https://mariusbancila.ro/blog/2008/04/10/output-formatting-with-stdcopy/)
 
-## TODO
-- More detailed explanations on the `using` statements
-- More detailed explanations on the algotrithm itself
-- More detailed explanations on printing with the std::copy
-- More detailed explanations CMakeLists.txt file
-- More detailed explanations clean_build.sh file
+```cpp
+constexpr static auto quick_sort = [](auto &v) noexcept
+```
+The implementation is directly based on the example given in the example usage of [std::partition](https://en.cppreference.com/w/cpp/algorithm/partition) algorithm of [cppreference](https://en.cppreference.com/w) page. An iterator based stack has been used to simulate the function call stack in where the algortihm were implemented recursively. Same technique and `std` functions has been used to get the type of the iterator of the input vector as in the print_vector lambda but its a one-liner expression.
 
+Pivot element selection is done by choosing the middle of the two iterators. The position of the pivot element's iterator is calculated by adding the half distance between two iterators to the lower iterator.
+The distance between iterators returned by [std::distance](https://en.cppreference.com/w/cpp/iterator/distance) function. The [std::next](https://en.cppreference.com/w/cpp/iterator/next) function is used to properly add the calculated distance to the lower iterator.
+Possible iterators to be used in the next iteration is returned from two succesive calls to [std::partition](https://en.cppreference.com/w/cpp/algorithm/partition) function. These calls partitions the array into two halves where elements that are smaller than grouped in between `low` and `middle1` iterators and the elements greater or equal than pivot elements are located between `middle2` and `high`. If iterators are not overlapping, they are pushed onto the stack to be used as new `high` and `low` iterators.
 
 ## Compiler
 ```console
