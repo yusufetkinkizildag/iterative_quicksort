@@ -1,5 +1,5 @@
 # iterative_quicksort
-
+My iterative quicksort algorithm implementation based on the
 ## Compiler
 ```console
 root@docker-desktop:/iterative_quicksort$ g++ -v
