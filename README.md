@@ -22,12 +22,28 @@ root@docker-desktop:/iterative_quicksort# ./build/iterative_quicksort
 A trivial shell script that checks and deletes if `build` folder exists.
 Calls the cmake and make to build and compile the source code
 
-## CMakelists.txt
+## CMakeLists.txt
 A basic cmake file to specify C++ standard, build type and compile options
 
+## iterative_quicksort.cpp
+```cpp
+RandomNumberGenerator(int const min, int const max) noexcept;
+```
+A wrapper class on [std::uniform_int_distribution](https://en.cppreference.com/w/cpp/numeric/random/uniform_int_distribution) and [std::mt19937](https://en.cppreference.com/w/cpp/numeric/random/mersenne_twister_engine) to generate a random integer between `min` and `max`. [std::random_device](https://en.cppreference.com/w/cpp/numeric/random/random_device) is used as a random seed generator.
 
+```cpp
+constexpr static auto print_vector = [](auto const &v) noexcept
+```
+A constexpr lambda used to print a vector.
+The vector's `value_type` must be printable.
+To acquire the `value_type`; [decltype](https://en.cppreference.com/w/cpp/language/decltype), [std::remove_reference](https://en.cppreference.com/w/cpp/types/remove_reference) and [std::remove_const](https://en.cppreference.com/w/cpp/types/remove_cv) is used.
 
-
+## TODO
+- More detailed explanations on the `using` statements
+- More detailed explanations on the algotrithm itself
+- More detailed explanations on printing with the std::copy
+- More detailed explanations CMakeLists.txt file
+- More detailed explanations clean_build.sh file
 
 
 ## Compiler
