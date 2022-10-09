@@ -1,4 +1,3 @@
-  // g++ iterative_quick_sort.cpp -std=c++17
 #include <iostream>
 #include <stack>
 #include <algorithm>
