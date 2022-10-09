@@ -3,7 +3,8 @@ My iterative quicksort algorithm implementation based on the [std::partition](ht
 
 
 ## Requirements
-gcc 9.4.0
+gcc 9.4.0 
+
 More info on [compiler](#compiler)
 
 ## How to compile
