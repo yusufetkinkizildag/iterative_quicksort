@@ -2,7 +2,7 @@
 My iterative quicksort algorithm implementation based on the [std::partition](https://en.cppreference.com/w/cpp/algorithm/partition) example on the [cppreference](https://en.cppreference.com/w/)
 
 
-#Requirements
+## Requirements
 gcc 9.4.0
 More info on [compiler](#compiler)
 
