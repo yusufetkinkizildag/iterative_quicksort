@@ -55,6 +55,18 @@ Pivot element selection is done by choosing the middle of the two iterators. The
 The distance between iterators returned by [std::distance](https://en.cppreference.com/w/cpp/iterator/distance) function. The [std::next](https://en.cppreference.com/w/cpp/iterator/next) function is used to properly add the calculated distance to the lower iterator.
 Possible iterators to be used in the next iteration is returned from two succesive calls to [std::partition](https://en.cppreference.com/w/cpp/algorithm/partition) function. These calls partitions the array into two halves where elements that are smaller than grouped in between `low` and `middle1` iterators and the elements greater or equal than pivot elements are located between `middle2` and `high`. If iterators are not overlapping, they are pushed onto the stack to be used as new `high` and `low` iterators.
 
+```cpp
+auto rng{RandomNumberGenerator(0, 100)};
+```
+Adjust the parameters of the random number generator to change the range of the generated random integers.
+Currently the generated numbers are in the \[0, 100\] range.
+
+```cpp
+auto v{generate_vector(rng, 10)};
+```
+The size of the vector is determined by the second argument. Adjust the second parameter to change the number of generated integers
+
+
 ## Compiler
 ```console
 root@docker-desktop:/iterative_quicksort$ g++ -v
