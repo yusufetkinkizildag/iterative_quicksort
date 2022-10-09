@@ -26,3 +26,14 @@ Thread model: posix
 gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.1)
 ```
 
+## How to compile
+```console
+root@docker-desktop:/# cd /path/to/iterative_quicksort
+root@docker-desktop:/iterative_quicksort# bash clean_build.sh
+```
+
+## How to run
+```console
+root@docker-desktop:/# cd /path/to/iterative_quicksort
+root@docker-desktop:/iterative_quicksort# ./build/iterative_quicksort
+```
