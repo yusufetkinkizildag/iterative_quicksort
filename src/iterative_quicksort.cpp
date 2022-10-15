@@ -16,7 +16,7 @@ public:
     int operator()() noexcept { return dist(gen); }
 };
 
-constexpr static auto print_vector = [](auto const &v) noexcept
+constexpr static auto print_vector{[](auto const &v) noexcept
 {
     using A = typename std::remove_reference<decltype(v)>::type;
     using B = typename std::remove_const<A>::type;
@@ -24,9 +24,9 @@ constexpr static auto print_vector = [](auto const &v) noexcept
     std::cout << '[';
     std::copy(std::cbegin(v), std::cend(v), std::ostream_iterator<C>(std::cout, ", "));
     std::cout << "]\n";
-};
+}};
 
-constexpr static auto quick_sort = [](auto &v) noexcept
+constexpr static auto quick_sort{[](auto &v) noexcept
 {
     std::stack<typename std::remove_reference<decltype(v)>::type::iterator> stack;
     stack.push(std::begin(v));
@@ -53,14 +53,14 @@ constexpr static auto quick_sort = [](auto &v) noexcept
             stack.push(high);
         }
     }
-};
+}};
 
-constexpr static auto generate_vector = [](auto &generator, auto const n) noexcept
+constexpr static auto generate_vector{[](auto &generator, auto const n) noexcept
 {
     std::vector<int> v(n);
     std::generate_n(std::begin(v), n, generator);
     return v;
-};
+}};
 
 int main()
 {
